@@ -19,7 +19,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: rgb(54, 54, 54);
-  background-color: #018749;
+  background-color: #B2BEB5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -34,7 +34,11 @@ code {
   flex-direction: column;
   flex-wrap: nowrap;
   padding: 5rem;
+  margin:  0 auto;
+  margin: 2.7rem;
   height: 100vh;
+  height: 100%;
+  background-color: #EEE8AA;
 }
 
 .container-form {
@@ -47,6 +51,8 @@ code {
   align-items: flex-start;
   justify-content: space-evenly;
   font-size: 1.2rem;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .form-label {
@@ -59,7 +65,7 @@ code {
   height: 2rem;
   border: none;
   outline: none;
-  background-color: #1a5238ab;
+  background-color:#b2beb5bd;
   border-radius: 15px;
   text-indent: 1rem;
 }
@@ -70,14 +76,16 @@ code {
   border: none;
   border-radius: 15px;
   outline: none;
-  background-color: #1a5238ab;
+  background-color: #FFF5EE;
   height: 2rem;
   width: 5rem;
+  color:rgb(54, 54, 54);
+
 }
 
 .form-button:hover {
   transition: .2s;
-  color: whitesmoke;
+  color:rgb(54, 54, 54);
   transform: translateY(-2px);
   cursor: pointer;
 }
@@ -102,11 +110,12 @@ code {
 .user {
   padding: 1rem;
   margin-bottom: 1rem;
-  border: .3rem solid #1a5238ab;
+  border: .3rem solid rgba(54, 54, 54, 0.671);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   animation: fadein .2s;
+  color:rgb(54, 54, 54);
 }
 
 .user-data {
@@ -175,7 +184,11 @@ code {
   border: none;
   outline: none;
   background-color: transparent;
-  fill: #751e22;
+  fill: #c42c349f;
+}
+
+.trash-can:hover {
+  fill: #c42c34;
 }
 
 .edit-pen {
@@ -185,7 +198,11 @@ code {
   border: none;
   outline: none;
   background-color: transparent;
-  fill: #2f1c80;
+  fill: #2e1c809d;
+}
+
+.edit-pen:hover {
+  fill: #2e1c80;
 }
 
 .fall {
@@ -193,6 +210,3 @@ code {
   opacity: 0;
   transition: all .5s;
 }
-
-
-
