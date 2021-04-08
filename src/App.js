@@ -57,7 +57,11 @@ export class App extends React.Component {
 
     if (this.state.formState === FORM_STATES.NEW) {
 
+      let checkedListForIDValidation = [...this.state.usersList];
+      checkedListForIDValidation = checkedListForIDValidation.filter(user => user.id === this.state.id);
+
       const users = [...this.state.usersList];
+
       if (this.state.firstName.trim() === '' || this.state.secondName.trim() === '' || this.state.id.trim() === '') {
         alert('Form fields cannot be empty :)');
       } else if (/[^A-Za-z\d]/.test(this.state.firstName.trim()) && /[^A-Za-z\d]/.test(this.state.secondName.trim())) {
@@ -65,7 +69,9 @@ export class App extends React.Component {
       } else if (/\D/.test(this.state.id)) {
         alert('ID field must include numbers only in length of 9 caracters.');
       } else if (this.state.id.length !== 9) {
-        alert('ID field has to include 9 characters');
+        alert('ID field has to include 9 characters.');
+      } else if(checkedListForIDValidation.length > 0) {
+        alert('ID has to be unique.');
       } else {
         users.push({ firstName: this.state.firstName, secondName: this.state.secondName, id: this.state.id });
       }
@@ -136,16 +142,16 @@ export class App extends React.Component {
         <div className="container-form">
           <form onSubmit={this.addUser} className="form">
             <div>
-              <label className="form-label">First Name: </label>
-              <input type='text' name="firstName" value={this.state.firstName} onChange={this.onInput} className="form-input" />
+              <label className="form-label">First Name:</label>
+              <input type='text' placeholder="Eg. Jack" name="firstName" value={this.state.firstName} onChange={this.onInput} className="form-input" />
             </div>
             <div>
-              <label className="form-label">Second Name: </label>
-              <input type="text" name="secondName" value={this.state.secondName} onChange={this.onInput} className="form-input" />
+              <label className="form-label">Second Name:</label>
+              <input type="text" placeholder="Eg. Jackson" name="secondName" value={this.state.secondName} onChange={this.onInput} className="form-input" />
             </div>
             <div>
-              <label className="form-label">ID: </label>
-              <input type="text" name="id" value={this.state.id} onChange={this.onInput} disabled={this.state.formState === FORM_STATES.EDIT} className="form-input" />
+              <label className="form-label">ID: (9 digits)</label>
+              <input type="text" placeholder="Eg. 000000000" name="id" value={this.state.id} onChange={this.onInput} disabled={this.state.formState === FORM_STATES.EDIT} className="form-input" />
             </div>
             <input type="submit" className="form-button" value={this.state.formState === FORM_STATES.NEW ? 'Submit' : 'Confirm'} />
           </form>
